@@ -11,5 +11,8 @@
     "url": "git@github.com-lepsistemas:lepsistemas/twd-clean-architecture-api.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.1.3"
+  }
 }
