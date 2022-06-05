@@ -16,7 +16,7 @@ describe('In memory user repository', () => {
     const repository = new InMemoryUserRepository(users)
     repository.add({ name, email })
     const result = await repository.findUserByEmail('any@mail.com')
-    expect(result).toStrictEqual({ name, email })
+    expect(result).toStrictEqual({ name: 'any_name', email: 'any@mail.com' })
   })
 
   test('should return all users in the repository', async () => {
