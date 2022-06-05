@@ -6,7 +6,7 @@ export default {
   collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
   testEnvironment: 'node',
   transform: {
-    '.+\\z.ts': 'ts-jest'
+    '^.+\\.(ts|tsx)$': 'ts-jest'
   },
   coverageProvider: 'v8'
 }
