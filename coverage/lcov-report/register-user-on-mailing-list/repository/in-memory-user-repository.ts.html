@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76.92% </span>
+                <span class="strong">86.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/26</span>
+                <span class='fraction'>26/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/5</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76.92% </span>
+                <span class="strong">86.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/26</span>
+                <span class='fraction'>26/30</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -89,19 +89,27 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -125,19 +133,23 @@ export class InMemoryUserRepository implements UserRepository {
     this.users = users
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  add (user: UserData): Promise&lt;void&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    throw new Error('Method not implemented.')</span>
-<span class="cstat-no" title="statement not covered" >  }</span>
-&nbsp;
-  findUserByEmail (email: string): Promise&lt;UserData&gt; {
-    return null
+  async add (user: UserData): Promise&lt;void&gt; {
+    this.users.push(user)
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  findAllUsers (): Promise&lt;UserData&gt; {</span>
+  async findUserByEmail (email: string): Promise&lt;UserData&gt; {
+    const user = this.users.find(user =&gt; user.email === email)
+    if (!user) {
+      return null
+    }
+    return user
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  async findAllUsers (): Promise&lt;UserData&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    throw new Error('Method not implemented.')</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >  exists (user: UserData): Promise&lt;boolean&gt; {</span>
+<span class="fstat-no" title="function not covered" >  async exists (user: UserData): Promise&lt;boolean&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    throw new Error('Method not implemented.')</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 }
@@ -148,7 +160,7 @@ export class InMemoryUserRepository implements UserRepository {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Sun Jun 05 2022 19:01:15 GMT-0400 (Eastern Daylight Time)
+                at Sun Jun 05 2022 19:28:54 GMT-0400 (Eastern Daylight Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
